@@ -6,32 +6,36 @@ window.addEventListener('load', () => {
   // Customise these options. The numbers are in milliseconds
   const config = {
     cycleSpeed: 2,
-    startTime: '200',
+    startTime: '50',
     endTime: '6000'
   }
 
   const elContainer = document.getElementById('container')
   const elText = document.getElementById('text')
-  let last = config.startTime;
+  let last = config.startTime
+  let animation
 
-  const render = (now) => {
+  function render (now) {
     if (!last || now - last >= config.cycleSpeed) {
-      last = now;
+      last = now
       elText.innerHTML = randomItem(items)
 
-      if (now > config.endTime) {
-        elContainer.classList.add('complete')
-        return
-      }
     }
 
-    requestAnimationFrame(render);
+    animation = requestAnimationFrame(render)
+
+    if (now > config.endTime) {
+      elContainer.classList.add('complete')
+      cancelAnimationFrame(animation)
+      return
+    }
   }
 
-  elContainer.classList.add('active')
   render()
-  // setTimeout(() => {
-  // }, 1000);
+
+  setTimeout(() => {
+    elContainer.classList.add('active')
+  }, config.startTime)
 })
 
 const items = [
@@ -83,7 +87,7 @@ const items = [
   "Micro Mages",
   "Social Justice Warriors",
   "Catlateral Damage",
-  "Dungeons &amp; Lesbians",
+  "Dungeons &amp Lesbians",
   "From Orbit",
   "KIDS",
   "Highway Blossoms: Remastered",
@@ -162,8 +166,8 @@ const items = [
   "Ironsworn: Delve",
   "Destiny Fails Us: A New Life",
   "Halloween Forever",
-  "Hex Kit: Spaceland Part One; Space",
-  "Code 7 - Episodes 2 &amp; 3 Available Now",
+  "Hex Kit: Spaceland Part One Space",
+  "Code 7 - Episodes 2 &amp 3 Available Now",
   "Space Station Architect",
   "VEKTOR 2089",
   "Switch 'N' Shoot",
@@ -204,7 +208,7 @@ const items = [
   "starseed pilgrim",
   "Headspun: Dazed Edition",
   "nullpointer",
-  "Mable &amp; The Wood",
+  "Mable &amp The Wood",
   "Steam Marines 2",
   "Memoir En Code: Reissue",
   "Pixel Session Vol.1",
@@ -260,7 +264,7 @@ const items = [
   "Gutwhale",
   "Hollow Head",
   "LYNE",
-  "Dominique Pamplemousse and Dominique Pamplemousse in &quot;Combinatorial Explosion!&quot;",
+  "Dominique Pamplemousse and Dominique Pamplemousse in &quotCombinatorial Explosion!&quot",
   "Feathers",
   "MIDNIGHT ULTRA",
   "Inverness Nights",
@@ -280,7 +284,7 @@ const items = [
   "The King's Bird",
   "And All Would Cry Beware!",
   "THE ENIGMA MACHINE",
-  "Ollie &amp; Bollie: Outdoor Estate",
+  "Ollie &amp Bollie: Outdoor Estate",
   "[Speer]",
   "Galactic Wars",
   "Love Hues! [Full Game]",
@@ -294,12 +298,12 @@ const items = [
   "The Wolf's Bite",
   "Parallax",
   "BFF or Die",
-  "Gentle Forest - A &quot;Mana Seed&quot; Pixel Art Tileset",
+  "Gentle Forest - A &quotMana Seed&quot Pixel Art Tileset",
   "The Land of Glass",
   "LOVE",
   "Legend of Hand",
   "IMMURE",
-  "Chook &amp; Sosig: Walk the Plank",
+  "Chook &amp Sosig: Walk the Plank",
   "Volo Airsport",
   "Cook, Serve, Delicious! 2!!",
   "Football Drama",
@@ -319,10 +323,10 @@ const items = [
   "Vision Soft Reset",
   "The Müll Littoral",
   "Monster Pub Chapter 1",
-  "Nina Aquila: Legal Eagle, Chapter II: &quot;Broken Wings&quot;",
+  "Nina Aquila: Legal Eagle, Chapter II: &quotBroken Wings&quot",
   "RPM - Rage's Platformer Movement Plus",
   "Plunge",
-  "Dominique Pamplemousse in &quot;It's All Over Once The Fat Lady Sings!&quot;",
+  "Dominique Pamplemousse in &quotIt's All Over Once The Fat Lady Sings!&quot",
   "Cats are Liquid - A Light in the Shadows",
   "Mon-cuties for All",
   "FLAMBERGE",
@@ -428,7 +432,7 @@ const items = [
   "Ungrounded",
   "Saviors of Hogtown",
   "Inkanians",
-  "StarFighter R&amp;D HD Edition",
+  "StarFighter R&ampD HD Edition",
   "Hero Too",
   "Into The Mist 2: The Cult",
   "STARDROP",
@@ -529,7 +533,7 @@ const items = [
   "Doodle Date",
   "Chipmonk!",
   "8bit Overworld Tileset",
-  "Glitch Brushes: Dithering &amp; Text",
+  "Glitch Brushes: Dithering &amp Text",
   "Hero Generations",
   "The Bookshelf",
   "Without Escape",
@@ -540,7 +544,7 @@ const items = [
   "Yi and the Thousand Moons",
   "1980",
   "Spectres of the Cold",
-  "RPG Monsters &amp; Minions HUGE Pack",
+  "RPG Monsters &amp Minions HUGE Pack",
   "Atomic Reconstruction",
   "Online Simulator",
   "EleMetals: Death Metal Death Match",
@@ -552,7 +556,7 @@ const items = [
   "Super HelmKnight",
   "Skeleton Song",
   "inSynch",
-  "Corinne Cross's Dead &amp; Breakfast",
+  "Corinne Cross's Dead &amp Breakfast",
   "Pixel Button Prompts! (Keyboard/Gamepad)",
   "PQ93",
   "SpringBack",
@@ -584,7 +588,7 @@ const items = [
   "Extended monster pack",
   "Hardship River",
   "Campfire Cooking",
-  "Moon Child &amp; Sun Knight",
+  "Moon Child &amp Sun Knight",
   "Sheep Dreams Are Made of This",
   "GourMelee",
   "Miles Infernum",
@@ -597,7 +601,7 @@ const items = [
   "PIXEL ART PLATFORM/METROIDVANIA ASSET PACK",
   "CARBAGE",
   "Where is cat?",
-  "SOULS &amp; STRIPES",
+  "SOULS &amp STRIPES",
   "Wretched Wasteland",
   "PICO-8",
   "A Game of Changes",
@@ -856,7 +860,7 @@ const items = [
   "Keep It Together",
   "Dead Friend: A Game of Necromancy",
   "Hello, World",
-  "I Have Low Stats But My Class Is &quot;Leader&quot;, So I Recruited Everyone I Know To Fight The Dark Lord",
+  "I Have Low Stats But My Class Is &quotLeader&quot, So I Recruited Everyone I Know To Fight The Dark Lord",
   "Chalice",
   "VISIGOTHS vs MALL GOTHS",
   "Location Withheld",
@@ -886,7 +890,7 @@ const items = [
   "The Page I Didn't Write",
   "52 Fates",
   "Glitch Pixel Brushes II",
-  "Furries &amp; Scalies &amp; Bears OH MY!: Ultimate Edition",
+  "Furries &amp Scalies &amp Bears OH MY!: Ultimate Edition",
   "Eye of Ra",
   "Impulse Drive",
   "Low Poly Auto Racing Car Pack - Devils Work.shop",
@@ -929,15 +933,15 @@ const items = [
   "MicroHorrorArcade Trilogy I - Andy's Story",
   "Pleroma",
   "Kissing Capes",
-  "Books &amp; Bone",
+  "Books &amp Bone",
   "Golden Treasure: The Great Green",
   "Medieval Town and Country + Interiors Bundle",
-  "Affection Game (print &amp; play version)",
+  "Affection Game (print &amp play version)",
   "Locomancer",
   "Space Goblins!",
   "Possession",
   "Ma'amser, Saan Po Kayo?",
-  "Steal This Game! Rebels &amp; Renegades",
+  "Steal This Game! Rebels &amp Renegades",
   "Pulstario",
   "VULTURES",
   "EVERYONE ON THE MOON IS ESSENTIAL PERSONNEL",
@@ -983,7 +987,7 @@ const items = [
   "Chess: Two Kingdoms",
   "Backspace Bouken",
   "Freelancers",
-  "Scary Monsters &amp; Nice Sprites",
+  "Scary Monsters &amp Nice Sprites",
   "They Won't Go When I Go",
   "Construct 2/3 Pseudo 3D (with playable example)",
   "NO THING",
@@ -1016,7 +1020,7 @@ const items = [
   "LaserCat",
   "Word After Word",
   "The Queen Returns",
-  "Grime &amp; Gaslight",
+  "Grime &amp Gaslight",
   "Cats are Liquid - A Better Place",
   "SOLACEBOUND",
   "One Last Fight",
@@ -1055,7 +1059,7 @@ const items = [
   "soundStrider",
   "Jet Buster",
   "Behind the Masc",
-  "Full of Memory &amp; Anger",
+  "Full of Memory &amp Anger",
   "Echoes",
   "Potato Thriller (Classic)",
   "probability 0",
@@ -1154,7 +1158,7 @@ const items = [
   "Geese At The Beach: Creatures Tasked With Collecting Things For The Feathery Overlord",
   "Super Ledgehop: Double Laser",
   "GUNPIG: Firepower For Hire",
-  "Glitch Brushes: Maze &amp; Organic Textures",
+  "Glitch Brushes: Maze &amp Organic Textures",
   "Embedded Heart",
   "With These Phantom Hands",
   "Transmission Burst v. 2",
@@ -1162,7 +1166,7 @@ const items = [
   "There Will Be Ink",
   "Obachan Panic!",
   "Moonsailors",
-  "Ætherjack’s Almanac Number 2 Cabbits &amp; Combat",
+  "Ætherjack’s Almanac Number 2 Cabbits &amp Combat",
   "Doubt Comes In",
   "Garden Match",
   "Dumpster Fire",
@@ -1193,7 +1197,7 @@ const items = [
   "RPG Town Tileset",
   "SHNIPERS",
   "The Death of the Corpse Wizard",
-  "&quot;Land of Pán-gǔ&quot; Care Package 盤古之地禮物包",
+  "&quotLand of Pán-gǔ&quot Care Package 盤古之地禮物包",
   "Pizza Heroes",
   "The Rise and Fall of Cataclysmo",
   "WET CIGARETTE",
@@ -1203,7 +1207,7 @@ const items = [
   "Rogue Rocks",
   "Savage Tokusatsu: Shimmer Guardians Adventures!",
   "Unmoored",
-  "Hollytech &amp; Jollymancy",
+  "Hollytech &amp Jollymancy",
   "Nest Lander",
   "A Touch of Glamour",
   "We Are Ciphers",
@@ -1233,12 +1237,12 @@ const items = [
   "Darkest Wave",
   "The Watching Book",
   "SNES Original Soundtrack Small Collection",
-  "&quot;your sister's drown'd, laertes&quot;",
+  "&quotyour sister's drown'd, laertes&quot",
   "Canal Goons",
   "Shadowcut",
   "The City is as Stars",
   "Clouds of Fire: Blazing Skies",
-  "Iron, Flax, &amp; Bone",
+  "Iron, Flax, &amp Bone",
   "reYal",
   "Satan, Pay My Rent!",
   "Collared",
@@ -1308,7 +1312,7 @@ const items = [
   "Haiduc",
   "Mythtaken",
   "Tabletop Archaeology 101",
-  "Adventurer &amp; Troll",
+  "Adventurer &amp Troll",
   "Atomic Robo: The Roleplaying Game",
   "Fools Fortune",
   "Smash the System",
@@ -1362,7 +1366,7 @@ const items = [
   "Book of Eos",
   "Light to Your Heart",
   "Garrison Gauntlet",
-  "Skin &amp; Bones",
+  "Skin &amp Bones",
   "Hooklings",
   "The Stars Whisper",
   "find(Humanity)",
@@ -1440,7 +1444,7 @@ const items = [
   "Bad Government",
   "Dee Dum (Computer)",
   "Conversations With My Anxiety",
-  "Cyborgs &amp; Cigarettes",
+  "Cyborgs &amp Cigarettes",
   "down.",
   "Out from the Shadows (Forking Paths #3)",
   "Anime RPG Tile Pack - Vol.1 School [PIXEL OF LIFE]",
@@ -1492,7 +1496,7 @@ const items = [
   "Swords Pack x6",
   "Saudade",
   "The Finest (there will be no music)",
-  "The Big Wave: Colorblind &amp; Deaf Friendly Puzzle Game",
+  "The Big Wave: Colorblind &amp Deaf Friendly Puzzle Game",
   "That Which Binds Us",
   "Dead 4 Dress",
   "Guidebook to the Viridian Maw (Forking Paths #1)",
@@ -1541,7 +1545,7 @@ const items = [
   "Enc and the Flying Machine",
   "ARGH-P-G",
   "This Call May Be Recorded",
-  "Nótt &amp; Dagr",
+  "Nótt &amp Dagr",
   "The Adventures of Yulpers! Soundtrack",
   "Story Time Frames",
   "Corey Coolbrew",
@@ -1571,7 +1575,7 @@ const items = [
   "Pillars of Dust",
   "The Gateshead Engine",
   "Crazy Cultists: The Devilishly Fun Game For The Whole Family!",
-  "Campers &amp; Counselors (A Lasers &amp; Feelings hack)",
+  "Campers &amp Counselors (A Lasers &amp Feelings hack)",
   "Crystal Towers 2",
   "Zepball Deluxe",
   "Affinity",
@@ -1599,7 +1603,7 @@ const items = [
   "Dusk Child",
   "Turn Chase",
   "Tales from the Road",
-  "as long as we're together: magical girls sweet &amp; pure",
+  "as long as we're together: magical girls sweet &amp pure",
   "I'm Bored, Let's Explore (Ruins)",
   "DriftKing 2D",
   "They Come From Uranus!",
@@ -1677,7 +1681,7 @@ const items = [
   "Guide of the Butterfly",
   "BackFire",
   "Terri-Fried",
-  "Blood Bullets &amp; Ballet",
+  "Blood Bullets &amp Ballet",
   "Propagating Love",
   "Plana Gravatatis",
   "ACIDTRIP",
@@ -1733,7 +1737,7 @@ const items = [
   "A Hole New World",
   "DungeonGameAssetPack",
   "Halloween Game Icons",
-  "Rod, Reel, &amp; Fist PDF",
+  "Rod, Reel, &amp Fist PDF",
   "TorqueL / トルクル",
   "Sushi Master VR -  寿司職人VR -",
   "Cubefall",
