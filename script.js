@@ -5,16 +5,37 @@ function randomItem (items) {
 window.addEventListener('load', () => {
   // Customise these options. The numbers are in milliseconds
   const config = {
-    cycleSpeed: 2,
-    endTime: '6000'
+    cycleSpeed: 3,
+    endTime: 20500
   }
+
+  const StartSlowing = config.endTime * 0.2
+  const nearlyComplete = config.endTime * 0.5
+  const prettyMuchTheEnd = config.endTime * 0.925
+  let relativeSpeedReduction = config.endTime / (config.endTime / (config.cycleSpeed / 10))
 
   const elContainer = document.getElementById('container')
   const elText = document.getElementById('text')
   let last = 50
   let animation
+  console.log(config.endTime);
+  console.log(config.cycleSpeed);
 
   function render (now) {
+    if (now > StartSlowing) {
+      config.cycleSpeed = config.cycleSpeed + (relativeSpeedReduction * 1.5)
+    }
+
+    if ((now > nearlyComplete) && (!elContainer.classList.contains('nearly-complete'))) {
+      config.cycleSpeed = config.cycleSpeed + (relativeSpeedReduction * 2.5)
+      console.log('in');
+      elContainer.classList.add('nearly-complete')
+    }
+
+    if (now > prettyMuchTheEnd) {
+      config.cycleSpeed = config.cycleSpeed + (relativeSpeedReduction * 4.75)
+    }
+
     if (!last || now - last >= config.cycleSpeed) {
       last = now
       elText.innerHTML = randomItem(items)
