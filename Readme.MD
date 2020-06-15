@@ -7,7 +7,3 @@ It currently contains 1705 games, which were taken from the [bundle page](https:
 ## Customisation
 
 There's a few customisable options in script.js, and some customisable CSS variables near the top of style.css
-
-## Known issues
-
-* Had to remove the transform transition. The transition is showing the 'active' state when the browser source is reloaded. Meaning the #container slides out and back in again.

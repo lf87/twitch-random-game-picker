@@ -6,13 +6,12 @@ window.addEventListener('load', () => {
   // Customise these options. The numbers are in milliseconds
   const config = {
     cycleSpeed: 2,
-    startTime: '50',
     endTime: '6000'
   }
 
   const elContainer = document.getElementById('container')
   const elText = document.getElementById('text')
-  let last = config.startTime
+  let last = 50
   let animation
 
   function render (now) {
@@ -35,7 +34,7 @@ window.addEventListener('load', () => {
 
   setTimeout(() => {
     elContainer.classList.add('active')
-  }, config.startTime)
+  }, 250)
 })
 
 const items = [
