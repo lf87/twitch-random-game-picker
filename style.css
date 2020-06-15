@@ -22,7 +22,7 @@
 
   /* Customisable variables */
   --background-colour: #00aa00;
-  --width: 75%;
+  --width: 50%;
   --easing: var(--ease-out-quint);
 }
 
@@ -35,6 +35,7 @@ body {
   justify-content: flex-start;
   padding-bottom: 15px;
   padding-left: 15px;
+  overflow: hidden;
 }
 
 #container {
@@ -50,7 +51,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
-  transition: opacity 1s var(--easing), transform 1s var(--easing);
+  transition: opacity 1s var(--easing);
   transform: translate3d(-100%, 0, 0);
   opacity: 0;
 }
@@ -91,14 +92,3 @@ body {
 #container.complete #text {
   width: auto;
 }
-
-/*
-#display {
-  padding-bottom: 10px;
-  width: auto;
-  height: auto;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000,
-    -1px 1px 0 #000;
-} */
