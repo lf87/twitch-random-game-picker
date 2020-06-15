@@ -2,6 +2,38 @@ function randomItem (items) {
   return items[Math.floor(Math.random() * items.length)]
 }
 
+window.addEventListener('load', () => {
+  // Customise these options. The numbers are in milliseconds
+  const config = {
+    cycleSpeed: 2,
+    startTime: '200',
+    endTime: '6000'
+  }
+
+  const elContainer = document.getElementById('container')
+  const elText = document.getElementById('text')
+  let last = config.startTime;
+
+  const render = (now) => {
+    if (!last || now - last >= config.cycleSpeed) {
+      last = now;
+      elText.innerHTML = randomItem(items)
+
+      if (now > config.endTime) {
+        elContainer.classList.add('complete')
+        return
+      }
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  elContainer.classList.add('active')
+  render()
+  // setTimeout(() => {
+  // }, 1000);
+})
+
 const items = [
   "Overland",
   "Night in the Woods",
@@ -1710,34 +1742,3 @@ const items = [
   "Woodland Chasers"
 ]
 
-window.addEventListener('load', () => {
-  // Customise these options. The numbers are in milliseconds
-  const config = {
-    cycleSpeed: 2,
-    startTime: '200',
-    endTime: '6000'
-  }
-
-  const elContainer = document.getElementById('container')
-  const elText = document.getElementById('text')
-  let last = config.startTime;
-
-  const render = (now) => {
-    if (!last || now - last >= config.cycleSpeed) {
-      last = now;
-      elText.innerHTML = randomItem(items)
-
-      if (now > config.endTime) {
-        elContainer.classList.add('complete')
-        return
-      }
-    }
-
-    requestAnimationFrame(render);
-  }
-
-  elContainer.classList.add('active')
-  render()
-  // setTimeout(() => {
-  // }, 1000);
-})
